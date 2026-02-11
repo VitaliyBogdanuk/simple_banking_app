@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Banking Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="app">
+        <header class="topbar">
+            <div class="topbar-title">Banking</div>
+            <div class="topbar-subtitle">Simulator</div>
+        </header>
+        <section class="card balance-card">
+            <div class="balance-label">Current balance</div>
+            <div class="balance-value">
+                <span class="currency">$</span>
+                <span id="balanceValue">0</span>
+            </div>
+            <div class="balance-hint">Data saves automatically</div>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Deposit</div>
+            <div class="row">
+                <label class="field">
+                    <span class="field-label">Amount</span>
+                    <input type="number" inputmode="decimal" id="depositInput" placeholder="0" min="0" step="0.01" />
+                </label>
+                <button class="btn btn-primary" id="depositBtn">Add</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Withdraw</div>
+            <div class="row">
+                <label class="field">
+                    <span class="field-label">Amount</span>
+                    <input type="number" inputmode="decimal" id="withdrawInput" placeholder="0" min="0" step="0.01" />
+                </label>
+                <button class="btn btn-secondary" id="withdrawBtn">Take</button>
+            </div>
+            <div class="danger-hint" id="errorText" aria-live="polite"></div>
+        </section>
+
+        <section class="card">
+            <div class="card-head">
+                <div class="card-title">Transactions</div>
+                <button class="btn btn-ghost" id="clearBtn" type="button">Clear</button>
+            </div>
+
+            <div class="segmented" role="tablist" aria-label="Transactions filter">
+                <button class="segmented-btn is-active" id="filterAll" type="button" role="tab"
+                    aria-selected="true">All</button>
+                <button class="segmented-btn" id="filterIn" type="button" role="tab"
+                    aria-selected="false">Deposit</button>
+                <button class="segmented-btn" id="filterOut" type="button" role="tab"
+                    aria-selected="false">Withdraw</button>
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Total deposits</div>
+                    <div class="stat-value">
+                        <span class="stat-currency">$</span>
+                        <span id="totalInValue">0.00</span>
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Total withdrawals</div>
+                    <div class="stat-value">
+                        <span class="stat-currency">$</span>
+                        <span id="totalOutValue">0.00</span>
+                    </div>
+                </div>
+            </div>
+            <ul id="transactionsList" class="tx-list"></ul>
+
+            <div class="empty" id="emptyState">
+                No transactions yet
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
